@@ -1,5 +1,7 @@
 # MongoDB-Database-Fetch
 
+Microservice implemented for group members. Part of CS361.
+
 ## Communication Contract ##
 
 The following are instructions for making a sample call to my MonogoDB Database using JavaScript in VScode.
