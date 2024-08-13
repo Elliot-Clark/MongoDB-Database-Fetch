@@ -52,8 +52,8 @@ async function saveItem(obj) {
         await client.connect();
         console.log('Connected to MongoDB successfully');
 
-        const database = client.db('MedLevels');
-        const collection = database.collection('entry');
+        const database = client.db('cats');
+        const collection = database.collection('catsDatabase');
 
         const result = await collection.insertOne(obj);
         console.log("New item added");
