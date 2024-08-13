@@ -46,6 +46,37 @@ async function fetchCats() {
 }
 
 fetchCats();
+
+async function saveItem(obj) {
+    try {
+        await client.connect();
+        console.log('Connected to MongoDB successfully');
+
+        const database = client.db('MedLevels');
+        const collection = database.collection('entry');
+
+        const result = await collection.insertOne(obj);
+        console.log("New item added");
+    } catch (err) {
+        console.error('Error occurred:', err);
+    } finally {
+        await client.close();
+        console.log('Connection to MongoDB closed');
+    }
+}
+
+
+const obj = {
+    id: '1',
+    location: { lat: 40, lng: -74 },
+    name: 'Whiskers',
+    type: 'Persian',
+    personality: 'Playful',
+    indoor: true,
+    outdoor: false
+};
+
+saveItem(obj);
 ```
 
 5. After saving this file it can be run by typing into the terminal: **node app.js**
